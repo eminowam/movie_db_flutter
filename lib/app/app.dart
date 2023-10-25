@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_db/config/app_color.dart';
 import 'package:the_movie_db/widgets/auth/auth_widget.dart';
+import 'package:the_movie_db/widgets/main_screen/main_screen_widget.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,11 +12,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-            backgroundColor: Color.fromRGBO(3, 37, 65, 1)),
+            backgroundColor: AppColor.mainDarkBlue),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColor.mainDarkBlue,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey
+        ),
         brightness: Brightness.light,
         fontFamily: "OpenSans"
       ),
-      home: AuthWidget(),
+      routes: {
+        '/auth': (context)=> AuthWidget(),
+        '/main_screen': (context)=> MainScreenWidget(),
+      },
+      initialRoute: '/auth',
     );
   }
 }
