@@ -10,10 +10,8 @@ class MainScreenWidget extends StatefulWidget {
 }
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
-  static const List<Widget>_widgetOptions=<Widget>[
-    Text("News"),
-    MovieListWidget(),
-    Text("Serials"),
+  static final List<Widget>_widgetOptions=<Widget>[
+
   ];
 
 
@@ -32,8 +30,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
         title: Text("TMDB"),
         centerTitle: true,
       ),
-      body: Center(
-        child: _widgetOptions[_selectedItem],
+      body:IndexedStack(
+        index: _selectedItem,
+        children: [
+        Text("News"),
+        MovieListWidget(),
+        Text("Serials"),
+      ]
       ),
 
 
