@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/config/app_color.dart';
 import 'package:the_movie_db/config/app_text_style.dart';
-import 'package:the_movie_db/widgets/main_screen/main_screen_widget.dart';
+import 'package:the_movie_db/screen/main_screen_widget.dart';
 
 class FormWidget extends StatefulWidget {
   const FormWidget({super.key});
