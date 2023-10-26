@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_db/config/app_color.dart';
 import 'package:the_movie_db/widgets/auth/form_widget.dart';
 import 'package:the_movie_db/widgets/auth/header.dart';
 
@@ -13,6 +14,7 @@ class _AuthWidgetState extends State<AuthWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         centerTitle: true,
         title: Text("Login to your account"),

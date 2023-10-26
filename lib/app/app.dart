@@ -3,6 +3,7 @@ import 'package:the_movie_db/config/app_color.dart';
 import 'package:the_movie_db/screen/auth_widget.dart';
 import 'package:the_movie_db/screen/main_screen_widget.dart';
 import 'package:the_movie_db/screen/movie_details.dart';
+import 'package:the_movie_db/widgets/auth/auth_model.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           fontFamily: "OpenSans"),
       routes: {
-        '/auth': (context) => AuthWidget(),
+        '/auth': (context) => AuthProvider(
+          model: AuthModel(),
+            child: const AuthWidget()),
         '/main_screen': (context) => MainScreenWidget(),
         '/main_screen/movie_details': (context) {
           final arguments = ModalRoute.of(context)!.settings.arguments;

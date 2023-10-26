@@ -21,7 +21,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
         centerTitle: true,
       ),
       body: ListView(
-        children: [
+        children: const [
            MovieDetailsInfo(),
           SizedBox(height: 15,),
           Divider(
