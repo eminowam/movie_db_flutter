@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_db/config/app_color.dart';
 
  class Movie {
    final int id;
@@ -131,12 +132,12 @@ class _MovieListWidgetState extends State<MovieListWidget> {
               child: Stack(children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black.withOpacity(0.2)),
+                      color: AppColor.searchCardColor,
+                      border: Border.all(color: Colors.white.withOpacity(0.2)),
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.white.withOpacity(0.1),
                             blurRadius: 8,
                             offset: Offset(0, 2))
                       ]),
@@ -156,7 +157,8 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                             ),
                             Text(
                               movie.title,
-                              style: TextStyle(fontWeight: FontWeight.w600),
+                              style: TextStyle(fontWeight: FontWeight.w600,
+                              color: Colors.white),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -174,6 +176,10 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                             ),
                             Text(
                               movie.description,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400
+                              ),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -202,8 +208,11 @@ class _MovieListWidgetState extends State<MovieListWidget> {
             controller: _searchController,
             decoration: InputDecoration(
               labelText: "Search",
+              labelStyle: TextStyle(
+                color: Colors.grey
+              ),
               filled: true,
-              fillColor: Colors.white.withAlpha(235),
+              fillColor: AppColor.searchCardColor.withOpacity(0.6),
               border: OutlineInputBorder(
               ),
             ),
@@ -212,6 +221,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ),
         )
     ]
+
     );
   }
 }

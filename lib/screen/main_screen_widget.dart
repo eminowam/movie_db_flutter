@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:the_movie_db/config/app_color.dart';
 import 'package:the_movie_db/widgets/movie_list/movie_list.dart';
 
 class MainScreenWidget extends StatefulWidget {
@@ -26,6 +27,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.mainDarkBlue,
       appBar: AppBar(
         title: Text("TMDB"),
         centerTitle: true,

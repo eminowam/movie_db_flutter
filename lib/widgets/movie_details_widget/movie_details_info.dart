@@ -12,7 +12,9 @@ class MovieDetailsInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
       TopPosterWidget(),
       Padding(
         padding: const EdgeInsets.all(20.0),
