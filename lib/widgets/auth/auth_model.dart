@@ -1,16 +1,38 @@
 import 'package:flutter/cupertino.dart';
+import 'package:the_movie_db/domain/api_client/api_client.dart';
 
 class AuthModel extends ChangeNotifier {
+  final _apiClient = ApiClient();
+
   final loginTextController = TextEditingController();
   final passwordTextController = TextEditingController();
+
   String? _errorMessage;
 
   String? get errorMessage => _errorMessage;
 
-  bool _isAuthProgress=false;
-  bool get canStartAuth=> _isAuthProgress;
+  bool _isAuthProgress = false;
 
-  Future<void> auth(BuildContext context) async {}
+  bool get canStartAuth => !_isAuthProgress;
+
+  Future<void> auth(BuildContext context) async {
+    final login = loginTextController.text;
+    final password = passwordTextController.text;
+    if (login.isEmpty || password.isEmpty) {
+      _errorMessage = "Заполните логин или пароль";
+      notifyListeners();
+      return;
+    }
+    _errorMessage = null;
+    _isAuthProgress = true;
+    notifyListeners();
+    final sessionId = await _apiClient.auth(
+      username: login,
+      password: password,
+    );
+    _isAuthProgress=false;
+    notifyListeners();
+  }
 }
 
 class AuthProvider extends InheritedNotifier {
